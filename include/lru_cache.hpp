@@ -100,6 +100,18 @@ public:
     }
 
     /**
+     * @brief Peeks at a value without changing its recency order.
+     * Safe for concurrent read-only access.
+     */
+    optional<Value> peek(const Key& key) const {
+        auto it = map_.find(key);
+        if (it == map_.end()) {
+            return nullopt;
+        }
+        return it->second->second;
+    }
+
+    /**
      * @brief Checks if a key exists without changing recency order.
      */
     bool contains(const Key& key) const {

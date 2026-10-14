@@ -9,6 +9,9 @@
                 "-std=c++20",
                 "-O2",
                 "-g",
+                "-static",
+                "-static-libgcc",
+                "-static-libstdc++",
                 "-I${workspaceFolder}/include",
                 "${file}",
                 "-o",
@@ -25,7 +28,7 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "detail": "Compiles active C++ file with modern C++20 and Winsock"
+            "detail": "Compiles active C++ file into a standalone executable"
         }
     ]
 }
